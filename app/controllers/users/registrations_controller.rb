@@ -13,9 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new configure_sign_up_params
     if @user.save
-      redirect_to '/', notice: 'User created successfully, confirm your account in your email before logging in'
+      redirect_to root_path, notice: 'User created successfully, confirm your account in your email before logging in'
     else
-      redirect_to '/', notice: 'User could not be created'
+      redirect_to root_path, notice: 'User could not be created'
     end
   end
 
