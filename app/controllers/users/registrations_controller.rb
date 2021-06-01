@@ -11,7 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    puts "create called"
+    puts "configure_sign_up_params =  #{configure_sign_up_params}"                                                               
     @user = User.new configure_sign_up_params
+    puts "@user = #{@user}"
     if @user.save
       redirect_to '/', notice: 'User created successfully, confirm your account in your email before logging in'
     else
