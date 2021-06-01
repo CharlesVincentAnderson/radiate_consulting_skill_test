@@ -60,7 +60,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "radiate_consulting_skill_test_production"
 
-  config.action_mailer.perform_caching = false
+#  config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { :host => 'radiate-consulting-skill-test.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :address          => "smtp.sendgrid.net",
