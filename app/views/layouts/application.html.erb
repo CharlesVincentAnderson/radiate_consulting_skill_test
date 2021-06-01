@@ -7,9 +7,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <header id="mainNav">
+      <%= render 'layouts/navigation' %>
+    </header>
+    <div class="body_div">
+      <%= yield %>
+    </div>
   </body>
 </html>
