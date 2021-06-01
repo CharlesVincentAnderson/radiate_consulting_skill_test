@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: radiate_consulting_skill_test_production
-  username: radiate_consulting_skill_test
+  database: darvrqmgja1hak
+  username: jdornchsltrhau
   password: <%= ENV['RADIATE_CONSULTING_SKILL_TEST_DATABASE_PASSWORD'] %>
