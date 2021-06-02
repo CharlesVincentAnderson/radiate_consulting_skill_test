@@ -1,8 +1,16 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :set_item, only: [:edit, :show, :update, :destroy, :inc_quantity, :dec_quantity]
 
   def index
     @items = Item.all
+  end
+
+  def my_items
+    if current_user.present?
+      @items = current_user.items
+    else
+      @items = Item.all
+    end
   end
 
   def new
@@ -20,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = item.new
   end
 
   def update
@@ -41,6 +48,18 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path, notice: "item could not be destroyed"
     end
+  end
+
+  def inc_quantity
+    @item.quantity = @item.quantity + 1
+    @item.save
+    redirect_to my_items_items_path
+  end
+
+  def dec_quantity
+    @item.quantity = @item.quantity - 1
+    @item.save
+    redirect_to my_items_items_path
   end
 
   private
