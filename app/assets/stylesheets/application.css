@@ -15,9 +15,59 @@
  */
 
 .body_div {
-  margin-top: 80px;
 }
 
 .user_links {
   float:right;
+  margin-right: 15em;
+}
+
+#mainNav {
+  background-color: #311554;
+  float:left;
+  z-index:999;
+  height: 80px;
+  width: 100%;
+}
+
+.item_links {
+  margin-top: 3em;
+  margin-left: 15em;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.table_header {
+  text-align: center;
+}
+
+table {
+  width: 95%;
+}
+
+th {
+  height: 70px;
+}
+
+.center {
+  text-align: center;
+}
+
+.notice_class {
+  text-align: center;
+  animation: fadeOut 2s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-sm-2"></div>
+    <div class="card">
+      <div class="container">
+        <div class="table_header">
+          <h1>Items</h1>
+          <table class="v1">
+            <thead>
+              <tr>
+                <th><%= 'Name' %></th>
+                <th><%= 'Quantity' %></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @items.each do |item| %>
+                <tr>
+                  <td><%= link_to "#{item.name}", edit_item_path(item), class: '' %></td>
+                  <td><%= link_to "-", dec_quantity_item_path(item), class: '' %> <%= link_to "#{item.quantity}", edit_item_path(item), class: '' %> <%= link_to "+", inc_quantity_item_path(item), class: '' %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

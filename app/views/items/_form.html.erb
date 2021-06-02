@@ -1,0 +1,14 @@
+<%= form_with model: @item do|f| %>
+  <div class="center">
+    <%= f.text_field :name, :cols => "30" %>
+    <small class="form-text text-muted">Item Name</small>
+  </div>
+  <br>
+  <div class="center">
+    <%= f.text_field :quantity %>
+    <small class="form-text text-muted center-text">Quantity</small>
+  </div>
+  <div class="center">
+    <input type="submit" name="commit" value="Save" class="button" >
+  </div>
+<% end %>

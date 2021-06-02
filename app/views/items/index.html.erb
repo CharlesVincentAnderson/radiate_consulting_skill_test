@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col-sm-2"></div>
+    <div class="card">
+      <div class="container">
+        <div class="table_header">
+          <h1>Items</h1>
+          <table class="v1">
+            <thead>
+              <tr>
+                <th><%= 'Name' %></th>
+                <th><%= 'Quantity' %></th>
+                <th><%= 'User' %></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @items.each do |item| %>
+                <tr>
+                  <td><%= item.name %></td>
+                  <td><%= item.quantity %></td>
+                  <td><%= item.user.email %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
