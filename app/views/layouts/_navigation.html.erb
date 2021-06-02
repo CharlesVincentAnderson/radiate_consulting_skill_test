@@ -12,8 +12,8 @@
 
 <div class="item_links">
   <div class="row">
-    <div style="height:3eml"><%= link_to 'All Items', items_path, class: '' %></div>  
-     | <div style="height:3eml"><%= link_to 'My Items', my_items_items_path, class: '' %></div>
+    <div style="height:3eml"><%= link_to 'All Inventories', items_path, class: '' %></div>  
+    <% if current_user.present? %>  | <div style="height:3eml"><%= link_to 'My Inventories', my_items_items_path, class: '' %></div><% end %>
   </div>  
 </div>
 
