@@ -57,17 +57,16 @@ th {
 
 .notice_class {
   text-align: center;
-  animation: fadeOut 2s ease-out;
-  animation-fill-mode: forwards;
 }
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+
+.app_button {
+  background-color: #311554;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom:2em;
 }

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy, :inc_quantity, :dec_quantity]
+  before_action :authenticate_user!, except: [:index]
+  before_action :verify_role!, except: [:index]
 
   def index
     @items = Item.all
@@ -21,9 +23,9 @@ class ItemsController < ApplicationController
     @item = Item.new item_params
     @item.user_id = current_user.id
     if @item.save
-      redirect_to root_path, notice: "item created"
+      redirect_to my_items_items_path, notice: "item created"
     else
-      redirect_to root_path, notice: "item could not be created"
+      redirect_to my_items_items_path, notice: "item could not be created"
     end
   end
 
@@ -32,9 +34,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update item_params
-      redirect_to root_path, notice: "item updated"
+      redirect_to my_items_items_path, notice: "item updated"
     else
-      redirect_to root_path, notice: "item could not be updated"
+      redirect_to my_items_items_path, notice: "item could not be updated"
     end
   end
 
@@ -71,4 +73,9 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find params[:id]
   end
+
+  def verify_role!
+    authorize @item || Item 
+  end
+  
 end
