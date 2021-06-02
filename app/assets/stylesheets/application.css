@@ -54,3 +54,20 @@ th {
 .center {
   text-align: center;
 }
+
+.notice_class {
+  text-align: center;
+  animation: fadeOut 2s ease-out;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
