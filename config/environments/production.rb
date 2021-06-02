@@ -60,7 +60,17 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "radiate_consulting_skill_test_production"
 
-  config.action_mailer.perform_caching = false
+#  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { :host => 'radiate-consulting-skill-test.herokuapp.com' }
+  ActionMailer::Base.smtp_settings = {
+    :address          => "smtp.sendgrid.net",
+    :port             => "25",
+    :authentication   => :plain,
+    :user_name        => 'apikey',
+    :password         => ENV['SENDGRID_API_KEY']
+#    :password         => ENV['SENDGRID_PASSWORD']
+#    :domain           => ENV['SENDGRID_DOMAIN']
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

@@ -1,10 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container">
-  <% if current_user.present? %>
-    <div><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %></div>
-  <% else %>
-    <div class='nav-item'><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></div>
-    <div class='nav-item'><%= link_to 'Sign up', new_user_registration_path, class: "nav-link pr-0" %></div>
-  <% end %>
+    <div class="row" style="width:100%">
+      <div class="row nav_links">
+        My items
+      </div>
+
+      <div class="row user_links">
+      <% if current_user.present? %>
+        <div><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %></div>
+      <% else %>
+          <div class='nav-item'><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></div>
+          <div class='nav-item'><%= link_to 'Sign up', new_user_registration_path, class: "nav-link pr-0" %></div>
+      <% end %>
+      </div>
+    </div>
   </div>
 </nav>
