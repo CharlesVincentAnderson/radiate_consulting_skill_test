@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy, :inc_quantity, :dec_quantity]
   before_action :authenticate_user!, except: [:index]
   before_action :verify_role!, except: [:index]
+  after_action :check_quantity, only: [:create, :update, :dec_quantity]
 
   def index
     @items = Item.all
@@ -78,4 +79,8 @@ class ItemsController < ApplicationController
     authorize @item || Item 
   end
   
+  def check_quantity
+    @item = Item.last if @item.nil?
+    UserMailer.with(user: current_user, item: @item).inventory_email.deliver_now if @item.quantity == 0
+  end
 end
