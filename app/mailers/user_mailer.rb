@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'charlesvincentanderson.@gmail.com'
+  default from: 'charlesvincentanderson@gmail.com'
 
   def inventory_email
     @user = params[:user]
