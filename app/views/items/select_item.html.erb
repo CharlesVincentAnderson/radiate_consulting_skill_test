@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-sm-2"></div>
+    <div class="card">
+      <div class="container">
+        <div class="table_header">
+          <h1>Select Products</h1>
+          <%= form_tag(remove_item_items_path, method: 'POST') do -%>
+            <%= select_tag :id, options_for_select(@items.pluck(:name)), { include_blank: true, required: true, class: 'form-control' } %>
+            <small class="form-text text-muted">Product name</small>
+            <div class="row">
+              <div class="col-sm-6 center"><%= link_to 'Back', my_items_items_path, class: 'app_button mt-4' %></div>
+              <div class="col-sm-6 center"><input type="submit" name="commit" value="Remove" class="app_button mt-4"></div>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

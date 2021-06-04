@@ -1,3 +1,4 @@
+require 'will_paginate/array' 
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy, :inc_quantity, :dec_quantity]
   before_action :authenticate_user!, except: [:index]
@@ -6,6 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @items = Item.paginate(page: params[:page], per_page: 10)
   end
 
   def my_items
@@ -14,6 +16,9 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+    @items = @items.to_a
+    @items = @items.paginate(page: params[:page], per_page: 10)
+    #Item.paginate(page: params[:page], per_page: 30)
   end
 
   def new
@@ -24,9 +29,9 @@ class ItemsController < ApplicationController
     @item = Item.new item_params
     @item.user_id = current_user.id
     if @item.save
-      redirect_to my_items_items_path, notice: "item created"
+      redirect_to my_items_items_path
     else
-      redirect_to my_items_items_path, notice: "item could not be created"
+      redirect_to my_items_items_path
     end
   end
 
@@ -35,9 +40,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update item_params
-      redirect_to my_items_items_path, notice: "item updated"
+      redirect_to my_items_items_path
     else
-      redirect_to my_items_items_path, notice: "item could not be updated"
+      redirect_to my_items_items_path
     end
   end
 
@@ -45,11 +50,21 @@ class ItemsController < ApplicationController
 
   end
 
+  def select_item
+    @items = current_user.items
+  end
+
+  def remove_item
+    @item = (params[:id].to_i.to_s != params[:id]) ? Item.find_by(name: params[:id]) : Item.find(params[:id])
+    @item.destroy
+    redirect_to my_items_items_path
+  end
+
   def destroy
     if @item.destroy
-      redirect_to root_path, notice: "item destroyed"
+      redirect_to my_items_items_path
     else
-      redirect_to root_path, notice: "item could not be destroyed"
+      redirect_to my_items_items_path
     end
   end
 
@@ -76,6 +91,9 @@ class ItemsController < ApplicationController
   end
 
   def verify_role!
+    if params[:id].present?
+      @item = Item.find_by(name: params[:id]) if (params[:id].to_i.to_s != params[:id])
+    end
     authorize @item || Item 
   end
   
