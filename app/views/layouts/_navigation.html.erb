@@ -1,8 +1,7 @@
-
 <div class="user_links"%>
 <% if current_user.nil? %>
   <div class="row">
-    <div class='nav-item'><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></div>
+    <div class='nav-item mr-2'><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></div>
     <div class='nav-item'><%= link_to 'Sign up', new_user_registration_path, class: "nav-link pr-0" %></div>
   </div>  
 <% else %>
@@ -12,8 +11,9 @@
 
 <div class="item_links">
   <div class="row">
-    <div style="height:3eml"><%= link_to 'All Inventories', items_path, class: '' %></div>  
-    <% if current_user.present? %>  | <div style="height:3eml"><%= link_to 'My Inventories', my_items_items_path, class: '' %></div><% end %>
+    <div class="bigger"><%= link_to 'All Products', items_path, class: '' %></div>
+    <div class="space"></div>
+    <% if current_user.present? %><div class="bigger"><%= link_to 'My Products', my_items_items_path, class: '' %></div><% end %>
   </div>  
 </div>
 

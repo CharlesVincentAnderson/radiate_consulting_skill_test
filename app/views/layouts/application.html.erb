@@ -29,7 +29,9 @@
     </div>
     <script type="text/javascript">
       window.addEventListener('load', function(event) {
-        setTimeout(function(){
+        console.log("page loaded");
+            setTimeout(function(){
+            console.log("setTimeOut called");
             $('#notice_wrapper').fadeOut("slow", function() {
                 $(this).remove();
             })

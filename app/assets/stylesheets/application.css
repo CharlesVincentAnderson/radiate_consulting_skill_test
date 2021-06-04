@@ -15,6 +15,7 @@
  */
 
 .body_div {
+  padding-top:160px;
 }
 
 .user_links {
@@ -31,12 +32,14 @@
 }
 
 .item_links {
-  margin-top: 3em;
+  margin-top: 2em;
   margin-left: 15em;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding-bottom:90px;
+  padding-top:20px;
 }
 
 .table_header {
@@ -69,4 +72,39 @@ th {
   display: inline-block;
   font-size: 16px;
   margin-bottom:2em;
+}
+
+.space {
+  width:2em;
+}
+
+.bigger {
+  font-size:35px;
+}
+
+.all_table {
+  margin-left:70px;
+}
+
+.nudge_left {
+  margin-right:0px;
+}
+
+.center {
+display: flex;
+justify-content: center;
+padding-top:40px
+}
+
+.match_h3 {
+  font-size: 1.9em;
+  font-weight: bold;
+  position:relative;
+  left:8px;
+  bottom: 7px;
+}
+
+.small_center {
+  display: flex;
+  justify-content: center;
 }

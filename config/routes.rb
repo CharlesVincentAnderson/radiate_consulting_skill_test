@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get :my_items
+      get :select_item
+      post :remove_item
     end
     member do
       get :inc_quantity

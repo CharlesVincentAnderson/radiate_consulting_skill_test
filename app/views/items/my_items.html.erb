@@ -3,7 +3,7 @@
     <div class="card">
       <div class="container">
         <div class="table_header">
-          <h1>Inventories</h1>
+          <h1>My Products</h1>
           <table class="v1">
             <thead>
               <tr>
@@ -21,8 +21,11 @@
               <% end %>
             </tbody>
           </table>
-          <br>
-          <%= link_to 'Add Item', new_item_path, :class => "app_button" %>
+          <div class="row center"><%= will_paginate @items %></div>
+          <div class="row">
+            <div class="col-sm-6 center"><%= link_to 'Add Product', new_item_path, :class => "app_button" %></div>
+            <div class="col-sm-6 center"><%= link_to 'Remove Product', select_item_items_path, :class => "app_button" %></div>
+          </div>
         </div>
       </div>
     </div>

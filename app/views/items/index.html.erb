@@ -3,8 +3,8 @@
     <div class="card">
       <div class="container">
         <div class="table_header">
-          <h1>Inventories</h1>
-          <table class="v1">
+          <div class="nudge_left"><h1>Products</h1></div>
+          <table class="all_table">
             <thead>
               <tr>
                 <th><%= 'Name' %></th>
@@ -23,6 +23,7 @@
               <% end %>
             </tbody>
           </table>
+          <div class="row center"><%= will_paginate @items %></div>
         </div>
       </div>
     </div> 
