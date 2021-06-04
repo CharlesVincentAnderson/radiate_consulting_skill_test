@@ -8,11 +8,11 @@ class ItemPolicy < ApplicationPolicy
     @user.present?
   end
 
-  %i(new? create? my_items?).each do |ali|
+  %i(new? create? my_items? select_item?).each do |ali|
     alias_method ali, :logged_in?
   end
 
-  %i(edit? update? destroy? inc_quantity? dec_quantity?).each do |ali|
+  %i(edit? update? destroy? inc_quantity? dec_quantity? remove_item?).each do |ali|
     alias_method ali, :logged_in_and_owner?
   end
 end
